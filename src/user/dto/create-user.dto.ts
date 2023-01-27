@@ -1,12 +1,12 @@
 import { IsEmail, IsNotEmpty, MinLength } from 'class-validator'
 
 export class CreateUserDTO {
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'Name cannot be empty' })
   name: string
 
-  @IsEmail()
+  @IsEmail(null, { message: 'The email entered is invalid' })
   email: string
 
-  @MinLength(6)
+  @MinLength(6, { message: 'Password must be at least 6 characters long' })
   password: string
 }
